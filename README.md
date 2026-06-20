@@ -58,8 +58,10 @@ Semua foto di `public/` adalah **foto stok placeholder** (dipinjam dari demo Gal
 ## Perlu diverifikasi / diisi sebelum tayang
 - **Nomor WhatsApp** `0818-0956-9169` → `6281809569169` — **PERLU VERIFIKASI** (sumber dari konten pihak ketiga). Sekarang terpusat di `lib/site.js` / env `NEXT_PUBLIC_WA_NUMBER` (ubah sekali, semua tombol ikut). Semua tombol WA pakai pesan ter-isi otomatis (`?text=`), termasuk deep-link per treatment & CTA mengambang.
 - **Hari & jam buka** (sekarang "Selasa–Minggu 10.00–18.00" — tandai konfirmasi).
-- **Nama dokter/tim** (riset menyebut "Dr. Hmes" & "Cinnia" — belum dipasang sebagai klaim; konfirmasi dulu).
-- **Harga** sengaja tidak ditampilkan (diarahkan ke WA) — sesuaikan kalau mau dipasang.
+- **Tim & Legalitas** — section `#tim` sekarang **tayang versi netral** (tanpa nama palsu: "Dokter Penanggung Jawab" + badge "STR aktif", dll) di `lib/site.js` (`site.team`, `site.legal.note`). Upgrade pas ada data asli: ganti `name` jadi nama dokter, isi nomor STR di `cred`, ganti foto, dan isi `legal.note` dengan nomor izin + alamat lengkap. (Set `showTeam: false` kalau mau sembunyiin lagi.)
+- **Harga "mulai dari"** — isi field `priceFrom` (rupiah) tiap treatment di `app/page.js`. Kalau `null`, baris harga otomatis disembunyikan. Detail penuh tetap diarahkan ke WA.
+- **FAQ** — draft jawaban di `app/page.js` (array `faqs`); sesuaikan dengan kebijakan klinik asli.
+- **Kepatuhan iklan medis** — testimoni & before/after untuk layanan medis-estetik diatur ketat (kode etik + kebijakan Meta Ads). Review dengan penanggung jawab medis sebelum dipakai di iklan berbayar.
 - **Palet & logo**: lavender/yellow/orange/navy adalah arah desain (asumsi); ganti token warna di `app/globals.css` (`@theme`) kalau ada brand asli.
 - **Disclaimer foto on-page udah dihapus** (sesuai permintaan) — jadi nggak ada lagi penanda "ilustrasi/bukan pasien asli" di situs. Foto `before/after`, `dr-amalia`, `treatment` di `public/` **masih stok demo**; wajib ganti dengan foto asli + izin sebelum live.
 - Testimoni = **contoh**, ganti dengan testimoni asli (izin).

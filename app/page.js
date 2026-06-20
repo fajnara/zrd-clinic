@@ -5,12 +5,15 @@ import ScrollReveal from "@/components/ScrollReveal";
 import FloatingWA from "@/components/FloatingWA";
 import { site, wa, waMain } from "@/lib/site";
 
+// priceFrom = harga "mulai dari" (rupiah). ⚠️ null = baris harga disembunyikan.
+// Isi angkanya kalau mau tampil, mis. priceFrom: 150000.
 const treatments = [
   {
     no: "01",
     name: "Laser Tato",
     tag: "Tattoo removal",
     star: true,
+    priceFrom: null,
     for: "Buat kamu yang mau hapus tato — bertahap & lebih aman.",
     desc: "Teknologi laser memecah pigmen tinta supaya memudar tiap sesi. Jarang ada di kota kecil; di ZRD bisa.",
     wa: wa("Halo ZRD Clinic, saya tertarik Laser Tato (hapus tato)"),
@@ -19,6 +22,7 @@ const treatments = [
     no: "02",
     name: "Skin Booster",
     tag: "Hydrating",
+    priceFrom: null,
     for: "Kulit kusam & kering yang pengen lembap dari dalam.",
     desc: "Nutrisi disuntik terarah untuk kelembapan, elastisitas, dan kilau alami.",
     wa: wa("Halo ZRD Clinic, saya tertarik Skin Booster"),
@@ -27,6 +31,7 @@ const treatments = [
     no: "03",
     name: "Perawatan Jerawat",
     tag: "Acne & facial",
+    priceFrom: null,
     for: "Jerawat aktif dan bekas yang membandel.",
     desc: "Pendekatan bertahap: facial, perawatan, sampai rencana di rumah. Sabar, bukan dipaksa.",
     wa: wa("Halo ZRD Clinic, saya mau perawatan jerawat / facial"),
@@ -35,10 +40,41 @@ const treatments = [
     no: "04",
     name: "Pencerahan & Peeling",
     tag: "Brightening",
+    priceFrom: null,
     for: "Warna kulit nggak rata, mau tampak lebih cerah.",
     desc: "Angkat sel kulit mati & ratakan warna kulit dengan peeling terukur.",
     wa: wa("Halo ZRD Clinic, saya tertarik pencerahan / peeling"),
   },
+];
+
+// Format rupiah ringkas: 150000 -> "Rp150.000"
+const rupiah = (n) => "Rp" + n.toLocaleString("id-ID");
+
+const faqs = [
+  [
+    "Berapa sesi yang dibutuhkan untuk laser tato?",
+    "Tergantung ukuran, warna tinta, kedalaman, dan usia tato — biasanya butuh beberapa sesi berjarak. Pas konsultasi & patch test, kami kasih perkiraan yang realistis, bukan janji muluk.",
+  ],
+  [
+    "Perawatannya sakit nggak?",
+    "Rasa tiap orang beda. Untuk laser umumnya terasa seperti sentilan karet; kami atur kenyamanan semampunya dan jelasin apa yang bakal kamu rasakan sebelum mulai.",
+  ],
+  [
+    "Ada efek setelahnya / downtime?",
+    "Sebagian perawatan bisa bikin kemerahan atau kulit sensitif sementara. Kami kasih panduan aftercare yang jelas biar pemulihannya lancar — dan ingatkan apa yang perlu dihindari dulu.",
+  ],
+  [
+    "Aman nggak buat kondisi kulitku?",
+    "Itu yang kami cek di konsultasi. Khusus laser selalu ada patch test di area kecil dulu sebelum sesi penuh, supaya aman buat kulitmu.",
+  ],
+  [
+    "Harganya berapa?",
+    "Harga tergantung kondisi, area, dan jumlah sesi. Beberapa treatment ada info “mulai dari” di kartunya; detail pastinya kami jelasin pas konsultasi — santai, tanpa paksaan.",
+  ],
+  [
+    "Harus booking dulu atau bisa langsung datang?",
+    "Paling enak chat WhatsApp dulu biar kami siapkan slot & jadwalmu nggak bentrok. Tapi mampir buat tanya-tanya juga boleh saat jam buka.",
+  ],
 ];
 
 const steps = [
@@ -58,6 +94,7 @@ const footerLinks = [
   ["#perawatan", "Perawatan"],
   ["#testimoni", "Testimoni"],
   ["#proses", "Proses"],
+  ["#faq", "FAQ"],
   ["#kunjungi", "Kunjungi"],
 ];
 
@@ -92,33 +129,15 @@ const schema = {
   sameAs: [site.instagram],
 };
 
-/* ikon garis tipis, mengikuti warna teks */
-function IconPin(props) {
-  return (
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
-      <path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z" />
-      <circle cx="12" cy="10" r="2.5" />
-    </svg>
-  );
-}
-function IconClock(props) {
-  return (
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v5l3 2" />
-    </svg>
-  );
-}
-
 export default function Page() {
   const year = new Date().getFullYear();
 
   return (
     <>
-      <a className="skip-link" href="#perawatan">Lompat ke perawatan</a>
+      <a className="skip-link" href="#main">Lompat ke konten</a>
       <Header />
 
-      <main>
+      <main id="main" tabIndex={-1}>
         {/* ===== HERO ===== */}
         <section id="beranda" className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24">
           {/* glow hangat lembut */}
@@ -224,6 +243,50 @@ export default function Page() {
           </div>
         </section>
 
+        {/* ===== TIM & LEGALITAS (tayang saat site.showTeam = true) ===== */}
+        {site.showTeam && (
+          <section id="tim" className="py-20 sm:py-28">
+            <div className="mx-auto max-w-6xl px-5">
+              <div className="max-w-2xl">
+                <p data-reveal className="eyebrow mb-4">Tim &amp; Legalitas</p>
+                <h2 data-reveal className="text-3xl font-semibold sm:text-4xl">
+                  Ditangani tangan yang tepat.
+                </h2>
+                <p data-reveal className="mt-4 text-slate-700">
+                  Perawatan medis-estetik butuh orang berlisensi. Ini tim yang nanganin kamu —
+                  dan dasar legalitas klinik kami.
+                </p>
+              </div>
+
+              <div className="mt-12 grid max-w-3xl gap-5 sm:grid-cols-2">
+                {site.team.map((m) => (
+                  <div key={m.name} data-reveal className="rounded-3xl border border-line bg-white p-6">
+                    <div className="relative mb-4 h-56 overflow-hidden rounded-2xl">
+                      <Image
+                        src={m.photo}
+                        alt={`${m.name} — ZRD Clinic`}
+                        fill
+                        sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <h3 className="font-display text-xl font-semibold text-navy-900">{m.name}</h3>
+                    <p className="mt-0.5 text-sm text-slate-500">{m.role}</p>
+                    <span className="mt-3 inline-block rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700">
+                      {m.cred}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <p data-reveal className="mt-8 text-sm text-slate-500">
+                <strong className="font-semibold text-navy-900">Legalitas.</strong>{" "}
+                {site.legal.note}
+              </p>
+            </div>
+          </section>
+        )}
+
         {/* ===== TREATMENTS ===== */}
         <section id="perawatan" className="py-20 sm:py-28">
           <div className="mx-auto max-w-6xl px-5">
@@ -247,7 +310,7 @@ export default function Page() {
                   rel="noopener noreferrer"
                   data-reveal
                   className={`group relative block overflow-hidden rounded-3xl border bg-white p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(15,42,68,.32)] ${
-                    t.star ? "border-orange-500/40 md:col-span-2" : "border-line hover:border-orange-500/40"
+                    t.star ? "border-orange-500/40" : "border-line hover:border-orange-500/40"
                   }`}
                 >
                   <div className="flex items-start justify-between gap-4">
@@ -269,6 +332,12 @@ export default function Page() {
                   </div>
                   <p className="mt-4 text-sm text-slate-700">{t.for}</p>
                   <p className="mt-2 text-sm text-slate-500">{t.desc}</p>
+                  {t.priceFrom != null && (
+                    <p className="mt-4 text-sm text-navy-900">
+                      <span className="text-slate-500">Mulai dari</span>{" "}
+                      <span className="font-display text-lg font-semibold">{rupiah(t.priceFrom)}</span>
+                    </p>
+                  )}
                   <span className="mt-5 inline-block text-sm font-semibold text-orange-700">
                     Tanya via WhatsApp →
                   </span>
@@ -331,6 +400,40 @@ export default function Page() {
           </div>
         </section>
 
+        {/* ===== FAQ ===== */}
+        <section id="faq" className="py-20 sm:py-28">
+          <div className="mx-auto max-w-3xl px-5">
+            <div className="max-w-2xl">
+              <p data-reveal className="eyebrow mb-4">FAQ</p>
+              <h2 data-reveal className="text-3xl font-semibold sm:text-4xl">
+                Pertanyaan yang sering muncul.
+              </h2>
+              <p data-reveal className="mt-4 text-slate-700">
+                Hal-hal yang biasanya ditanyakan sebelum mulai. Belum kejawab? Tinggal tanya di WhatsApp.
+              </p>
+            </div>
+
+            <div data-reveal className="mt-10 divide-y divide-line overflow-hidden rounded-3xl border border-line bg-white">
+              {faqs.map(([q, a]) => (
+                <details key={q} className="faq">
+                  <summary className="faq__q">
+                    <span>{q}</span>
+                    <span className="faq__icon" aria-hidden="true">+</span>
+                  </summary>
+                  <p className="faq__a">{a}</p>
+                </details>
+              ))}
+            </div>
+
+            <p data-reveal className="mt-8 text-center">
+              <a href={waMain} target="_blank" rel="noopener noreferrer"
+                className="inline-block text-sm font-semibold text-orange-700 hover:text-orange-600">
+                Masih ada pertanyaan? Chat WhatsApp →
+              </a>
+            </p>
+          </div>
+        </section>
+
         {/* ===== VISIT ===== */}
         <section id="kunjungi" className="border-y border-line bg-base-100 py-20 sm:py-28">
           <div className="mx-auto grid max-w-6xl items-start gap-12 px-5 md:grid-cols-2">
@@ -389,9 +492,9 @@ export default function Page() {
         <div className="bg-navy-900 text-slate-300">
           <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:grid-cols-2 lg:grid-cols-4">
             {/* brand */}
-            <div className="sm:col-span-2 lg:col-span-1">
+            <div className="sm:col-span-2 lg:col-span-2">
               <a href="#beranda" className="inline-flex items-center gap-2" aria-label="ZRD Clinic — beranda">
-                <span className="grid h-9 w-9 place-items-center rounded-xl bg-orange-500 font-display text-base font-semibold text-navy-950">Z</span>
+                <span aria-hidden="true" className="grid h-9 w-9 place-items-center rounded-xl bg-orange-500 font-display text-base font-semibold text-navy-950">Z</span>
                 <span className="font-display text-xl font-semibold text-white">
                   ZRD<span className="text-yellow-400">.</span>Clinic
                 </span>
@@ -414,21 +517,6 @@ export default function Page() {
               </ul>
             </div>
 
-            {/* kunjungi */}
-            <div>
-              <h3 className="font-display text-sm font-semibold uppercase tracking-wider text-white">Kunjungi</h3>
-              <ul className="mt-4 space-y-3 text-sm text-slate-300">
-                <li className="flex gap-2.5">
-                  <IconPin className="mt-0.5 shrink-0 text-orange-400" />
-                  <span>{site.address.street}, {site.address.city}, Kalsel.</span>
-                </li>
-                <li className="flex gap-2.5">
-                  <IconClock className="mt-0.5 shrink-0 text-orange-400" />
-                  <span>{site.hours}</span>
-                </li>
-              </ul>
-            </div>
-
             {/* kontak */}
             <div>
               <h3 className="font-display text-sm font-semibold uppercase tracking-wider text-white">Kontak</h3>
@@ -437,6 +525,12 @@ export default function Page() {
                   <a href={waMain} target="_blank" rel="noopener noreferrer"
                     className="text-sm text-slate-300 transition hover:text-orange-400">
                     WhatsApp
+                  </a>
+                </li>
+                <li>
+                  <a href={`tel:${site.phoneE164}`}
+                    className="text-sm text-slate-300 transition hover:text-orange-400">
+                    Telepon
                   </a>
                 </li>
                 <li>
@@ -451,9 +545,8 @@ export default function Page() {
 
           {/* bottom bar */}
           <div className="border-t border-white/10">
-            <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-2 px-5 py-6 text-xs text-slate-300 sm:flex-row sm:items-center">
+            <div className="mx-auto max-w-6xl px-5 py-6 text-xs text-slate-300">
               <p>© {year} ZRD Clinic · Kotabaru, Kalimantan Selatan.</p>
-              <p>Pratinjau desain.</p>
             </div>
           </div>
         </div>
