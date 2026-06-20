@@ -68,7 +68,7 @@ export default function Header() {
           <ul
             id="nav-list"
             onClick={() => setOpen(false)}
-            className={`${open ? "flex" : "hidden"} ${menuPanel} absolute inset-x-0 top-full flex-col gap-1 border-b px-5 pb-4 backdrop-blur sm:static sm:flex sm:flex-row sm:items-center sm:gap-7 sm:border-0 sm:bg-transparent sm:p-0`}
+            className={`${open ? "flex" : "hidden"} ${menuPanel} absolute inset-x-0 top-full flex-col gap-1 border-b px-5 pb-4 backdrop-blur sm:static sm:flex sm:flex-row sm:items-center sm:gap-7 sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none`}
           >
             {links.map(([href, label]) => (
               <li key={href}>
