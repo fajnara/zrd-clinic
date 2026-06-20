@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 // Interactive before/after wipe (drag / click / keyboard). Both images stay
@@ -49,7 +50,7 @@ export default function BeforeAfter({ beforeSrc, afterSrc, beforeAlt, afterAlt }
 
   return (
     <div
-      className="ba__frame glow-cyan"
+      className="ba__frame soft-shadow"
       ref={frameRef}
       onClick={(e) => {
         if (e.target.closest(".ba__handle")) return;
@@ -57,14 +58,28 @@ export default function BeforeAfter({ beforeSrc, afterSrc, beforeAlt, afterAlt }
       }}
     >
       <div className="ba__img ba__img--after">
-        <img className="ba__photo" src={afterSrc} alt={afterAlt} draggable="false" />
+        <Image
+          className="ba__photo"
+          src={afterSrc}
+          alt={afterAlt}
+          fill
+          sizes="(min-width: 768px) 768px, 100vw"
+          draggable={false}
+        />
         <span className="ba__tag ba__tag--after">Sesudah</span>
       </div>
       <div
         className="ba__img ba__img--before"
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
       >
-        <img className="ba__photo" src={beforeSrc} alt={beforeAlt} draggable="false" />
+        <Image
+          className="ba__photo"
+          src={beforeSrc}
+          alt={beforeAlt}
+          fill
+          sizes="(min-width: 768px) 768px, 100vw"
+          draggable={false}
+        />
         <span className="ba__tag ba__tag--before">Sebelum</span>
       </div>
       <button

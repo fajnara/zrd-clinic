@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "^15.1.6",
@@ -14,6 +15,8 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.1.6",
     "postcss": "^8.4.49",
     "tailwindcss": "^4.0.0"
   }
