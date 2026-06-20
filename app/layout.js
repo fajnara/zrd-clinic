@@ -1,10 +1,13 @@
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
+import { site } from "@/lib/site";
 import "./globals.css";
 
-const display = Space_Grotesk({
+// Serif elegan untuk judul — kesan klinik/spa yang hangat (bukan tech).
+const display = Fraunces({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-space",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -16,24 +19,49 @@ const body = Inter({
 });
 
 export const metadata = {
-  title: "ZRD Clinic — Klinik Kecantikan & Laser di Kotabaru",
+  metadataBase: new URL(site.url),
+  title: {
+    default: "ZRD Clinic — Klinik Kecantikan & Laser di Kotabaru",
+    template: "%s · ZRD Clinic",
+  },
   description:
     "ZRD Clinic Kotabaru: laser tato (tattoo removal), skin booster, dan perawatan jerawat. Teknologi kulit yang biasanya cuma ada di kota besar — sekarang di Kotabaru.",
-  metadataBase: new URL("https://zrd-clinic.example"),
+  keywords: [
+    "klinik kecantikan Kotabaru",
+    "laser tato Kotabaru",
+    "tattoo removal Kalimantan Selatan",
+    "skin booster Kotabaru",
+    "perawatan jerawat Kotabaru",
+    "ZRD Clinic",
+  ],
+  applicationName: "ZRD Clinic",
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
   openGraph: {
     title: "ZRD Clinic — Laser & Kulit di Kotabaru",
     description:
       "Laser tato, skin booster, perawatan jerawat. Klinik kulit modern di Kotabaru.",
+    url: site.url,
+    siteName: "ZRD Clinic",
     type: "website",
     locale: "id_ID",
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "ZRD Clinic — Laser & Kulit di Kotabaru",
+    description:
+      "Laser tato, skin booster, perawatan jerawat. Klinik kulit modern di Kotabaru.",
+  },
 };
 
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#06090c",
+  themeColor: "#f2f5fb",
 };
 
 export default function RootLayout({ children }) {
