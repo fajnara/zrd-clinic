@@ -13,7 +13,7 @@ const treatments = [
     name: "Laser Tato",
     tag: "Tattoo removal",
     star: true,
-    priceFrom: null,
+    priceFrom: 150000, // ⚠️ DUMMY — ganti harga asli sebelum live
     for: "Buat kamu yang mau hapus tato — bertahap & lebih aman.",
     desc: "Teknologi laser memecah pigmen tinta supaya memudar tiap sesi. Jarang ada di kota kecil; di ZRD bisa.",
     wa: wa("Halo ZRD Clinic, saya tertarik Laser Tato (hapus tato)"),
@@ -22,7 +22,7 @@ const treatments = [
     no: "02",
     name: "Skin Booster",
     tag: "Hydrating",
-    priceFrom: null,
+    priceFrom: 350000, // ⚠️ DUMMY
     for: "Kulit kusam & kering yang pengen lembap dari dalam.",
     desc: "Nutrisi disuntik terarah untuk kelembapan, elastisitas, dan kilau alami.",
     wa: wa("Halo ZRD Clinic, saya tertarik Skin Booster"),
@@ -31,7 +31,7 @@ const treatments = [
     no: "03",
     name: "Perawatan Jerawat",
     tag: "Acne & facial",
-    priceFrom: null,
+    priceFrom: 100000, // ⚠️ DUMMY
     for: "Jerawat aktif dan bekas yang membandel.",
     desc: "Pendekatan bertahap: facial, perawatan, sampai rencana di rumah. Sabar, bukan dipaksa.",
     wa: wa("Halo ZRD Clinic, saya mau perawatan jerawat / facial"),
@@ -40,7 +40,7 @@ const treatments = [
     no: "04",
     name: "Pencerahan & Peeling",
     tag: "Brightening",
-    priceFrom: null,
+    priceFrom: 200000, // ⚠️ DUMMY
     for: "Warna kulit nggak rata, mau tampak lebih cerah.",
     desc: "Angkat sel kulit mati & ratakan warna kulit dengan peeling terukur.",
     wa: wa("Halo ZRD Clinic, saya tertarik pencerahan / peeling"),
@@ -49,6 +49,17 @@ const treatments = [
 
 // Format rupiah ringkas: 150000 -> "Rp150.000"
 const rupiah = (n) => "Rp" + n.toLocaleString("id-ID");
+
+// Inisial untuk avatar fallback (buang gelar "dr."): "Rina Maharani" -> "RM"
+const initials = (name) =>
+  name
+    .replace(/^dr\.?\s*/i, "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
 
 const faqs = [
   [
@@ -262,13 +273,21 @@ export default function Page() {
                 {site.team.map((m) => (
                   <div key={m.name} data-reveal className="rounded-3xl border border-line bg-white p-6">
                     <div className="relative mb-4 h-56 overflow-hidden rounded-2xl">
-                      <Image
-                        src={m.photo}
-                        alt={`${m.name} — ZRD Clinic`}
-                        fill
-                        sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-                        className="object-cover"
-                      />
+                      {m.photo ? (
+                        <Image
+                          src={m.photo}
+                          alt={`${m.name} — ${m.role} ZRD Clinic`}
+                          fill
+                          sizes="(min-width: 640px) 45vw, 100vw"
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center bg-orange-100">
+                          <span className="font-display text-5xl font-semibold text-orange-700" aria-hidden="true">
+                            {initials(m.name)}
+                          </span>
+                        </div>
+                      )}
                     </div>
                     <h3 className="font-display text-xl font-semibold text-navy-900">{m.name}</h3>
                     <p className="mt-0.5 text-sm text-slate-500">{m.role}</p>
@@ -319,7 +338,7 @@ export default function Page() {
                       <h3 className="mt-1 font-display text-2xl font-semibold text-navy-900">
                         {t.name}
                         {t.star && (
-                          <span className="ml-3 align-middle rounded-full bg-yellow-400 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-navy-950">
+                          <span className="ml-3 align-middle rounded-full bg-orange-500 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-navy-950">
                             Unggulan
                           </span>
                         )}
