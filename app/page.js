@@ -14,8 +14,8 @@ const treatments = [
     tag: "Tattoo removal",
     star: true,
     priceFrom: 150000, // ⚠️ DUMMY — ganti harga asli sebelum live
-    for: "Buat kamu yang mau hapus tato — bertahap & lebih aman.",
-    desc: "Teknologi laser memecah pigmen tinta supaya memudar tiap sesi. Jarang ada di kota kecil; di ZRD bisa.",
+    for: "Penghapusan tato yang bertahap dan aman.",
+    desc: "Menggunakan teknologi laser presisi untuk memecah pigmen tinta secara efektif di setiap sesinya.",
     wa: wa("Halo ZRD Clinic, saya tertarik Laser Tato (hapus tato)"),
   },
   {
@@ -23,8 +23,8 @@ const treatments = [
     name: "Skin Booster",
     tag: "Hydrating",
     priceFrom: 350000, // ⚠️ DUMMY
-    for: "Kulit kusam & kering yang pengen lembap dari dalam.",
-    desc: "Nutrisi disuntik terarah untuk kelembapan, elastisitas, dan kilau alami.",
+    for: "Solusi intensif untuk kulit kusam dan kering..",
+    desc: "Nutrisi disuntikkan secara terarah untuk mengembalikan kelembapan, elastisitas, dan kilau alami dari dalam.",
     wa: wa("Halo ZRD Clinic, saya tertarik Skin Booster"),
   },
   {
@@ -32,8 +32,8 @@ const treatments = [
     name: "Perawatan Jerawat",
     tag: "Acne & facial",
     priceFrom: 100000, // ⚠️ DUMMY
-    for: "Jerawat aktif dan bekas yang membandel.",
-    desc: "Pendekatan bertahap: facial, perawatan, sampai rencana di rumah. Sabar, bukan dipaksa.",
+    for: "Penanganan tuntas untuk jerawat aktif dan bekas membandel.",
+    desc: "Pendekatan bertahap dan terukur—dari tindakan di klinik hingga panduan skincare di rumah.",
     wa: wa("Halo ZRD Clinic, saya mau perawatan jerawat / facial"),
   },
   {
@@ -41,8 +41,8 @@ const treatments = [
     name: "Pencerahan & Peeling",
     tag: "Brightening",
     priceFrom: 200000, // ⚠️ DUMMY
-    for: "Warna kulit nggak rata, mau tampak lebih cerah.",
-    desc: "Angkat sel kulit mati & ratakan warna kulit dengan peeling terukur.",
+    for: "Kembalikan kecerahan pada warna kulit yang tidak merata.",
+    desc: "Menggunakan eksfoliasi medis yang aman untuk mengangkat sel kulit mati dengan lembut.",
     wa: wa("Halo ZRD Clinic, saya tertarik pencerahan / peeling"),
   },
 ];
@@ -63,28 +63,28 @@ const initials = (name) =>
 
 const faqs = [
   [
-    "Berapa sesi yang dibutuhkan untuk laser tato?",
-    "Tergantung ukuran, warna tinta, kedalaman, dan usia tato — biasanya butuh beberapa sesi berjarak. Pas konsultasi & patch test, kami kasih perkiraan yang realistis, bukan janji muluk.",
+    "Berapa sesi yang dibutuhkan untuk menghilangkan tato?",
+    "Jumlah sesi bergantung pada ukuran, warna tinta, kedalaman, dan usia tato. Biasanya diperlukan beberapa sesi dengan jeda waktu tertentu. Saat konsultasi dan patch test, kami akan memberikan perkiraan medis yang realistis untuk kondisi Anda.",
   ],
   [
-    "Perawatannya sakit nggak?",
-    "Rasa tiap orang beda. Untuk laser umumnya terasa seperti sentilan karet; kami atur kenyamanan semampunya dan jelasin apa yang bakal kamu rasakan sebelum mulai.",
+    "Apakah perawatannya terasa sakit?",
+    "Toleransi rasa sakit setiap orang berbeda. Sensasi laser umumnya seperti terkena jepretan karet gelang. Kenyamanan Anda adalah prioritas kami; kami akan menyesuaikan intensitasnya dan menjelaskan setiap tahapan sebelum perawatan dimulai.",
   ],
   [
-    "Ada efek setelahnya / downtime?",
-    "Sebagian perawatan bisa bikin kemerahan atau kulit sensitif sementara. Kami kasih panduan aftercare yang jelas biar pemulihannya lancar — dan ingatkan apa yang perlu dihindari dulu.",
+    "Apakah ada efek samping atau downtime?",
+    "Beberapa perawatan mungkin menimbulkan kemerahan atau kulit sensitif sementara. Kami akan memberikan panduan aftercare (perawatan pasca-tindakan) yang detail agar proses pemulihan kulit Anda berjalan lancar dan aman.",
   ],
   [
-    "Aman nggak buat kondisi kulitku?",
-    "Itu yang kami cek di konsultasi. Khusus laser selalu ada patch test di area kecil dulu sebelum sesi penuh, supaya aman buat kulitmu.",
+    "Apakah perawatannya aman untuk kulit saya?",
+    "Kondisi kulit Anda akan dievaluasi secara menyeluruh saat sesi konsultasi. Khusus untuk laser, kami selalu melakukan patch test (uji area kecil) terlebih dahulu sebelum sesi penuh untuk memastikan keamanannya.",
   ],
   [
-    "Harganya berapa?",
-    "Harga tergantung kondisi, area, dan jumlah sesi. Beberapa treatment ada info “mulai dari” di kartunya; detail pastinya kami jelasin pas konsultasi — santai, tanpa paksaan.",
+    "Berapa biaya perawatannya?",
+    "Biaya bervariasi tergantung kondisi, area yang dirawat, dan jumlah sesi. Anda bisa melihat estimasi harga “mulai dari” pada menu layanan kami. Rincian biaya yang pasti akan dijelaskan secara transparan saat konsultasi, tanpa ada keharusan untuk langsung mengambil tindakan.",
   ],
   [
-    "Harus booking dulu atau bisa langsung datang?",
-    "Paling enak chat WhatsApp dulu biar kami siapkan slot & jadwalmu nggak bentrok. Tapi mampir buat tanya-tanya juga boleh saat jam buka.",
+    "Apakah harus booking jadwal dulu atau bisa langsung datang?",
+    "Kami sangat menyarankan Anda membuat janji temu via WhatsApp agar kami bisa menyiapkan slot waktu tanpa perlu antre lama. Namun, Anda tetap dipersilakan mampir di jam operasional klinik jika hanya ingin berkonsultasi ringan.",
   ],
 ];
 
@@ -161,14 +161,13 @@ export default function Page() {
             <div>
               <p data-reveal className="eyebrow mb-5">Klinik Kulit &amp; Laser · Kotabaru</p>
               <h1 data-reveal className="text-4xl font-semibold leading-[1.08] sm:text-6xl">
-                Rawat kulitmu,
+                Standar Baru,
                 <br />
-                tenang &amp; aman di{" "}
+                Perawatan Kulit di{" "}
                 <span className="italic text-orange-700">Kotabaru</span>.
               </h1>
               <p data-reveal className="mt-6 max-w-md text-lg text-slate-700">
-                <strong className="font-semibold text-navy-900">Laser tato</strong>, skin booster,
-                dan perawatan jerawat — ditangani tim ZRD Clinic dengan aman dan penjelasan yang jujur.
+                <strong className="font-semibold text-navy-900">Hadirkan Teknologi</strong> medis terdepan dan sentuhan ahli untuk kebutuhan estetika Anda. Mulai dari penghapusan tato yang aman, skin booster, hingga perawatan jerawat komprehensif.
               </p>
               <div data-reveal className="mt-8 flex flex-wrap items-center gap-4">
                 <a href={waMain} target="_blank" rel="noopener noreferrer"
@@ -176,12 +175,12 @@ export default function Page() {
                   Konsultasi via WhatsApp
                 </a>
                 <a href="#perawatan" className="inline-flex items-center gap-2 px-2 py-3 font-medium text-navy-900 transition hover:text-orange-700">
-                  Lihat perawatan <span aria-hidden="true">↓</span>
+                  Jelajahi Perawatan <span aria-hidden="true">↓</span>
                 </a>
               </div>
-              <p data-reveal className="mt-4 text-sm text-slate-500">
+              {/* <p data-reveal className="mt-4 text-sm text-slate-500">
                 Tanya-tanya dulu lewat WhatsApp — santai, tanpa wajib langsung datang.
-              </p>
+              </p> */}
               <ul data-reveal className="mt-9 flex flex-wrap gap-2">
                 {["Laser Tato", "Skin Booster", "Acne & Facial", "Pencerahan"].map((c) => (
                   <li key={c} className="rounded-full border border-line bg-white/70 px-4 py-1.5 text-sm text-slate-700">
@@ -204,10 +203,10 @@ export default function Page() {
                 />
               </div>
               <div className="absolute -bottom-5 -left-4 flex items-center gap-3 rounded-2xl bg-white px-5 py-4 soft-shadow sm:-left-6">
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-yellow-400 text-lg text-navy-950" aria-hidden="true">✦</span>
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-orange-500 text-lg text-navy-950" aria-hidden="true">✦</span>
                 <span className="block">
-                  <strong className="block font-display text-sm font-semibold text-navy-900">Patch test dulu</strong>
-                  <span className="text-xs text-slate-500">Aman sebelum sesi penuh</span>
+                  <strong className="block font-display text-sm font-semibold text-navy-900">Patch Test Gratis</strong>
+                  <span className="text-xs text-slate-500">Pastikan kulitmu siap sebelum mulai</span>
                 </span>
               </div>
             </div>
@@ -229,18 +228,16 @@ export default function Page() {
             <div>
               <p data-reveal className="eyebrow mb-4">Kenapa ZRD</p>
               <h2 data-reveal className="text-3xl font-semibold sm:text-4xl">
-                Hasil nyata butuh alat yang benar &amp; tangan yang teliti.
+                Perawatan Tepat dari Tangan yang Peduli.
               </h2>
               <p data-reveal className="mt-5 text-slate-700">
-                Kami bawa perawatan yang biasanya cuma ada di kota besar ke Kotabaru — dengan satu
-                aturan: aman dulu. Untuk laser, selalu ada patch test dan penjelasan realistis
-                soal berapa sesi yang dibutuhkan.
+                Merawat kulit seharusnya menjadi pengalaman yang menenangkan. Kami hadir di Kotabaru dengan komitmen penuh pada kenyamanan Anda: mengedepankan keamanan prosedur dan memberikan penjelasan medis yang mudah dipahami.
               </p>
               <ul data-reveal className="mt-7 space-y-4">
                 {[
-                  ["Patch test dulu", "Khusus laser, dites di area kecil sebelum sesi penuh."],
-                  ["Penjelasan jujur", "Berapa sesi & ekspektasi hasil dijelaskan di awal."],
-                  ["Alat terjaga", "Kebersihan & standar jadi prioritas."],
+                  ["Aman Sebelum Bertindak", "Patch test wajib untuk perawatan laser guna menghindari iritasi."],
+                  ["Komunikasi Terbuka", "Tidak ada janji berlebihan, hanya ekspektasi medis yang jujur dan realistis."],
+                  ["Standar Medis Ketat", "Alat modern yang selalu terawat dan terjaga kebersihannya untuk ketenangan Anda."],
                 ].map(([h, d]) => (
                   <li key={h} className="flex gap-4 border-l-2 border-orange-500 pl-4">
                     <span className="block">
@@ -259,13 +256,12 @@ export default function Page() {
           <section id="tim" className="py-20 sm:py-28">
             <div className="mx-auto max-w-6xl px-5">
               <div className="max-w-2xl">
-                <p data-reveal className="eyebrow mb-4">Tim &amp; Legalitas</p>
+                <p data-reveal className="eyebrow mb-4">Tim Medis &amp; Legalitas</p>
                 <h2 data-reveal className="text-3xl font-semibold sm:text-4xl">
-                  Ditangani tangan yang tepat.
+                  Keahlian Medis yang Terpercaya.
                 </h2>
                 <p data-reveal className="mt-4 text-slate-700">
-                  Perawatan medis-estetik butuh orang berlisensi. Ini tim yang nanganin kamu —
-                  dan dasar legalitas klinik kami.
+                  Tindakan estetik membutuhkan ketelitian dan lisensi medis. Kenali para profesional kami yang berdedikasi untuk memberikan perawatan terbaik dan teraman untuk Anda.
                 </p>
               </div>
 
@@ -299,7 +295,7 @@ export default function Page() {
               </div>
 
               <p data-reveal className="mt-8 text-sm text-slate-500">
-                <strong className="font-semibold text-navy-900">Legalitas.</strong>{" "}
+                <strong className="font-semibold text-navy-900">Legalitas Aman :</strong>{" "}
                 {site.legal.note}
               </p>
             </div>
@@ -310,13 +306,12 @@ export default function Page() {
         <section id="perawatan" className="py-20 sm:py-28">
           <div className="mx-auto max-w-6xl px-5">
             <div className="max-w-2xl">
-              <p data-reveal className="eyebrow mb-4">Perawatan</p>
+              <p data-reveal className="eyebrow mb-4">Layanan Unggulan</p>
               <h2 data-reveal className="text-3xl font-semibold sm:text-4xl">
-                Yang paling dicari di ZRD.
+                Yang Paling Sering dicari di ZRD.
               </h2>
               <p data-reveal className="mt-4 text-slate-700">
-                Dikurasi, bukan didaftar semua. Penjelasan jujur: untuk siapa &amp; apa yang bisa
-                diharapkan. Klik untuk tanya langsung di WhatsApp.
+                Rangkaian layanan yang dikurasi khusus untuk efektivitas maksimal. Penjelasan transparan mengenai ekspektasi hasil, langsung dari ahlinya.
               </p>
             </div>
 
@@ -425,10 +420,10 @@ export default function Page() {
             <div className="max-w-2xl">
               <p data-reveal className="eyebrow mb-4">FAQ</p>
               <h2 data-reveal className="text-3xl font-semibold sm:text-4xl">
-                Pertanyaan yang sering muncul.
+                Pertanyaan yang Sering Diajukan (FAQ)
               </h2>
               <p data-reveal className="mt-4 text-slate-700">
-                Hal-hal yang biasanya ditanyakan sebelum mulai. Belum kejawab? Tinggal tanya di WhatsApp.
+                Punya pertanyaan sebelum memulai perawatan? Temukan jawabannya di sini. Jika masih ada yang kurang jelas, jangan ragu untuk menghubungi kami via WhatsApp.
               </p>
             </div>
 
