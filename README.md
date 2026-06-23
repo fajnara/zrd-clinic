@@ -31,15 +31,17 @@ zrd-clinic/
 │  ├─ sitemap.js           # /sitemap.xml (auto Next.js)
 │  ├─ globals.css          # Tailwind v4 + token @theme + CSS before/after & reveal
 │  ├─ icon.png             # favicon (auto Next.js)
-│  ├─ opengraph-image.png  # OG share card 1200×630 (auto Next.js)
-│  └─ twitter-image.png
+│  ├─ opengraph-image.js   # OG card 1200×630 di-generate (next/og ImageResponse)
+│  ├─ twitter-image.js     # twitter:image (reuse generator yang sama)
+│  └─ apple-icon.js        # apple-touch-icon 180×180 (generated)
 ├─ components/
-│  ├─ Header.js            # client: sticky + menu mobile
+│  ├─ Header.js            # client: sticky navy-frosted + menu mobile
 │  ├─ BeforeAfter.js       # client: slider sebelum/sesudah (drag/klik/keyboard, next/image)
 │  ├─ FloatingWA.js        # client: CTA WhatsApp mengambang (muncul saat scroll)
 │  └─ ScrollReveal.js      # client: reveal on-scroll + fallback aman
 ├─ lib/
-│  └─ site.js              # SUMBER TUNGGAL: nomor WA, URL, alamat, jam, IG (env-driven)
+│  ├─ site.js              # SUMBER TUNGGAL: nomor WA, URL, alamat, jam, IG, tim (env-driven)
+│  └─ ogImage.js           # desain kartu OG/Twitter (ganti di sini buat art custom)
 ├─ public/  before.jpg  after.jpg  treatment.jpg  dr-amalia.jpg
 ├─ .env.example            # template env (WA number, site URL)
 └─ ...config (next/postcss/tailwind v4/jsconfig/.eslintrc.json/.gitignore)
@@ -49,9 +51,9 @@ zrd-clinic/
 Semua foto di `public/` adalah **foto stok placeholder** (dipinjam dari demo Galuh) — **bukan** pasien/klinik ZRD asli:
 | File | Dipakai di | Catatan |
 |---|---|---|
-| `/treatment.jpg` | Hero (background gelap) | stok demo |
-| `/dr-amalia.jpg` | Section "Kenapa ZRD" | stok demo (bukan dokter ZRD) |
-| `/before.jpg` `/after.jpg` | Slider Bukti | **stok demo** |
+| `/treatment.jpg` | Hero (foto utama) | stok demo |
+| `/dr-amalia.jpg` | Section "Kenapa ZRD" **+ kartu Tim "dr. Amalia Sari"** | ⚠️ **dipakai GANDA** & nama dokter masih placeholder — ganti foto + nama asli (audit nandain reuse lintas-situs) |
+| `/before.jpg` `/after.jpg` | Slider Testimoni | **stok demo** |
 
 **Before/after JANGAN dipajang sebagai hasil nyata** sebelum diganti foto pasien ZRD **dengan izin tertulis**. Nama file di `public/` semua **lowercase** dan dirujuk sebagai `/nama.jpg` (Vercel = Linux = case-sensitive).
 
