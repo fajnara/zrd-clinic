@@ -51,8 +51,10 @@ zrd-clinic/
 Semua foto di `public/` adalah **foto stok placeholder** (dipinjam dari demo Galuh) — **bukan** pasien/klinik ZRD asli:
 | File | Dipakai di | Catatan |
 |---|---|---|
-| `/treatment.jpg` | Hero (foto utama) | stok demo |
-| `/dr-amalia.jpg` | Section "Kenapa ZRD" **+ kartu Tim "dr. Amalia Sari"** | ⚠️ **dipakai GANDA** & nama dokter masih placeholder — ganti foto + nama asli (audit nandain reuse lintas-situs) |
+| `/hero.webp` | Hero (foto utama) | stok demo |
+| `/treatment.jpg` | Section "Kenapa ZRD" | stok demo |
+| `/dr-amalia.jpg` | Kartu Tim — dokter ("dr. Sari Wulandari") | ⚠️ foto stok + **nama dummy**; ganti foto & nama dokter asli |
+| `/rina.webp` | Kartu Tim — terapis ("Rina Maharani") | ⚠️ foto stok + **nama dummy**; ganti foto & nama asli |
 | `/before.jpg` `/after.jpg` | Slider Testimoni | **stok demo** |
 
 **Before/after JANGAN dipajang sebagai hasil nyata** sebelum diganti foto pasien ZRD **dengan izin tertulis**. Nama file di `public/` semua **lowercase** dan dirujuk sebagai `/nama.jpg` (Vercel = Linux = case-sensitive).
