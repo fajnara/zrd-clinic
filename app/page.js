@@ -194,7 +194,7 @@ export default function Page() {
             <div data-reveal className="relative">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] soft-shadow">
                 <Image
-                  src="/treatment.jpg"
+                  src="/hero.webp"
                   alt="Suasana ruang perawatan ZRD Clinic"
                   fill
                   priority
@@ -218,7 +218,7 @@ export default function Page() {
           <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
             <div data-reveal className="relative h-[440px] overflow-hidden rounded-[2rem] soft-shadow">
               <Image
-                src="/dr-amalia.jpg"
+                src="/treatment.jpg"
                 alt="Tim klinik ZRD di ruang perawatan"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
