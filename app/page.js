@@ -218,7 +218,7 @@ export default function Page() {
           <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
             <div data-reveal className="relative h-[440px] overflow-hidden rounded-[2rem] soft-shadow">
               <Image
-                src="/treatment.jpg"
+                src="/treatment.webp"
                 alt="Tim klinik ZRD di ruang perawatan"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
@@ -374,8 +374,8 @@ export default function Page() {
 
             <div data-reveal className="mx-auto mt-10 max-w-3xl">
               <BeforeAfter
-                beforeSrc="/before.jpg"
-                afterSrc="/after.jpg"
+                beforeSrc="/before.webp"
+                afterSrc="/after.webp"
                 beforeAlt="Kulit wajah sebelum perawatan — terdapat jerawat aktif"
                 afterAlt="Kulit wajah setelah rangkaian perawatan — tampak lebih bersih"
               />

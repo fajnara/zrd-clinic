@@ -42,7 +42,7 @@ zrd-clinic/
 ├─ lib/
 │  ├─ site.js              # SUMBER TUNGGAL: nomor WA, URL, alamat, jam, IG, tim (env-driven)
 │  └─ ogImage.js           # desain kartu OG/Twitter (ganti di sini buat art custom)
-├─ public/  before.jpg  after.jpg  treatment.jpg  dr-amalia.jpg
+├─ public/  before.webp  after.webp  treatment.webp  dr-amalia.webp
 ├─ .env.example            # template env (WA number, site URL)
 └─ ...config (next/postcss/tailwind v4/jsconfig/.eslintrc.json/.gitignore)
 ```
@@ -52,12 +52,12 @@ Semua foto di `public/` adalah **foto stok placeholder** (dipinjam dari demo Gal
 | File | Dipakai di | Catatan |
 |---|---|---|
 | `/hero.webp` | Hero (foto utama) | stok demo |
-| `/treatment.jpg` | Section "Kenapa ZRD" | stok demo |
-| `/dr-amalia.jpg` | Kartu Tim — dokter ("dr. Sari Wulandari") | ⚠️ foto stok + **nama dummy**; ganti foto & nama dokter asli |
+| `/treatment.webp` | Section "Kenapa ZRD" | stok demo |
+| `/dr-amalia.webp` | Kartu Tim — dokter ("dr. Sari Wulandari") | ⚠️ foto stok + **nama dummy**; ganti foto & nama dokter asli |
 | `/rina.webp` | Kartu Tim — terapis ("Rina Maharani") | ⚠️ foto stok + **nama dummy**; ganti foto & nama asli |
-| `/before.jpg` `/after.jpg` | Slider Testimoni | **stok demo** |
+| `/before.webp` `/after.webp` | Slider Testimoni | **stok demo** |
 
-**Before/after JANGAN dipajang sebagai hasil nyata** sebelum diganti foto pasien ZRD **dengan izin tertulis**. Nama file di `public/` semua **lowercase** dan dirujuk sebagai `/nama.jpg` (Vercel = Linux = case-sensitive).
+**Before/after JANGAN dipajang sebagai hasil nyata** sebelum diganti foto pasien ZRD **dengan izin tertulis**. Nama file di `public/` semua **lowercase** dan dirujuk sebagai `/nama.webp` (Vercel = Linux = case-sensitive).
 
 ## Perlu diverifikasi / diisi sebelum tayang
 - **Nomor WhatsApp** `0818-0956-9169` → `6281809569169` — **PERLU VERIFIKASI** (sumber dari konten pihak ketiga). Sekarang terpusat di `lib/site.js` / env `NEXT_PUBLIC_WA_NUMBER` (ubah sekali, semua tombol ikut). Semua tombol WA pakai pesan ter-isi otomatis (`?text=`), termasuk deep-link per treatment & CTA mengambang.
